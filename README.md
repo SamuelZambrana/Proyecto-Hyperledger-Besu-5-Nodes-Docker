@@ -14,3 +14,10 @@ cd Proyecto-Hyperledger-Besu-5-Nodes-Docker
 
 Ejecuta los nodos en Docker:
 docker-compose up -d
+
+Accede a la interfaz web de Besu en http://localhost:8545.
+Contribuciones
+¡Siéntete libre de contribuir al proyecto! Abre un issue o envía un pull request.
+
+Licencia
+Este proyecto está bajo la licencia Apache 2.0.
