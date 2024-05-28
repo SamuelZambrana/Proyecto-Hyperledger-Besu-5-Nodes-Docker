@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  teku:
+    environment:
+      - "JAVA_OPTS=-Xmx4g"
+      - "TEKU_OPTS=-XX:-HeapDumpOnOutOfMemoryError"
+    image: consensys/teku:24.3.0
+    container_name: teku-node
+    command:
+      - "--network=goerli"
+      - "--validators-proposer-default-fee-recipient=0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"
+      - "--ee-endpoint=http://besu-node:8551"
+      - "--ee-jwt-secret-file=/opt/teku/data/jwtsecret.hex"
+      - "--initial-state=/opt/teku/data/genesis.ssz"
+      - "--rest-api-docs-enabled=true"
+      - "--metrics-enabled=true"
+      - "--metrics-categories=BEACON,PROCESS,LIBP2P,JVM,NETWORK,PROCESS"
+      - "--metrics-host-allowlist=*"
+      - "--ignore-weak-subjectivity-period-enabled=true"
+    volumes:
+      - ./volumes/teku:/opt/teku/data
+    ports:
+      - "9000:9000"
+      - "5051:5051"
+      - "8008:8008"

@@ -1,0 +1,5 @@
+singleDb:
+  configuration:
+    optimizeForSmallDb: false
+    compressionType: "NO_COMPRESSION"
+    bottomMostCompressionType: "NO_COMPRESSION"

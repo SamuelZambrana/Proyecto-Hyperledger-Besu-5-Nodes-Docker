@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    command:
+      - "--storage.tsdb.retention=6h"
+      - "--storage.tsdb.path=/prometheus"
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./volumes/prometheus:/etc/prometheus
